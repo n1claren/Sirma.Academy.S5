@@ -13,5 +13,10 @@
         {
             return Side * Side;
         }
+
+        public override double GetPerimeter()
+        {
+            return 4 * Side;
+        }
     }
 }

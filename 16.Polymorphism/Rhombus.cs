@@ -6,15 +6,23 @@
 
         public double SecondDiagonal { get; set; }
 
-        public Rhombus(double d1, double d2)
+        public double Side { get; set; }
+
+        public Rhombus(double d1, double d2, double side)
         {
             FirstDiagonal = d1;
             SecondDiagonal = d2;
+            Side = side;
         }
 
         public override double GetArea()
         {
             return 0.5 * FirstDiagonal * SecondDiagonal;
+        }
+
+        public override double GetPerimeter()
+        {
+            return 4 * Side;
         }
     }
 }

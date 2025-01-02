@@ -16,5 +16,10 @@
         {
             return SideA * SideB;
         }
+
+        public override double GetPerimeter()
+        {
+            return 2 * (SideA + SideB);
+        }
     }
 }

@@ -11,7 +11,12 @@
 
         public override double GetArea()
         {
-            return 2 * Radius * Math.PI;
+            return Radius * Radius * Math.PI;
+        }
+
+        public override double GetPerimeter()
+        {
+            return 2 * Math.PI * Radius;
         }
     }
 }
