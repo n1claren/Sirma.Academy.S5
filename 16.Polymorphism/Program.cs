@@ -19,39 +19,196 @@ while (true)
     switch (command.ToLower())
     {
         case "circle":
-            double radius = double.Parse(Console.ReadLine());
+            double radius = 0;
+
+            while (true)
+            {
+                Console.WriteLine("Please enter the radius of the circle:");
+                string input = Console.ReadLine();
+
+                if (double.TryParse(input, out radius))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input you entered is not valid!");
+                }
+            }
+
             Circle circle = new Circle(radius);
             shapes.Add(circle);
+            Console.WriteLine("Circle created!");
             break;
 
         case "rectangle":
-            double sideA = double.Parse(Console.ReadLine());
-            double sideB = double.Parse(Console.ReadLine());
+            double sideA = 0;
+            double sideB = 0;
+
+            while (true)
+            {
+                Console.WriteLine("Please enter side A of rectangle:");
+                string inputA = Console.ReadLine();
+                bool isValidA = false;
+                bool isValidB = false;
+
+                if (double.TryParse(inputA, out sideA))
+                {
+                    isValidA = true;
+                }
+
+                Console.WriteLine("Please enter side B of rectangle:");
+                string inputB = Console.ReadLine();
+
+                if (double.TryParse(inputB, out sideB))
+                {
+                    isValidB = true;
+                }
+
+                if (isValidA && isValidB)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input you entered is not valid!");
+                }
+            }
+
             Rectangle rectangle = new Rectangle(sideA, sideB);
             shapes.Add(rectangle);
+            Console.WriteLine("Rectangle created!");
             break;
 
         case "rhombus":
-            double firstDiagonal = double.Parse(Console.ReadLine());
-            double secondDiagonal = double.Parse(Console.ReadLine());
-            double side = double.Parse(Console.ReadLine());
+            double firstDiagonal = 0;
+            double secondDiagonal = 0;
+            double side = 0;
+
+            while (true)
+            {
+                Console.WriteLine("Please enter first rhombus diagonal:");
+                string first = Console.ReadLine();
+                bool isValidFirst = false;
+                bool isValidSecond = false;
+                bool isValidSide = false;
+
+                if (double.TryParse(first, out firstDiagonal))
+                {
+                    isValidFirst = true;
+                }
+
+                Console.WriteLine("Please enter second rhombus diagonal:");
+                string second = Console.ReadLine();
+
+                if (double.TryParse(second, out secondDiagonal))
+                {
+                    isValidSecond = true;
+                }
+
+                Console.WriteLine("Please enter rhombus side:");
+                string sideTemp = Console.ReadLine();
+
+                if (double.TryParse(sideTemp, out side))
+                {
+                    isValidSide = true;
+                }
+
+                if (isValidFirst && isValidSecond && isValidSide)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input you entered is not valid!");
+                }
+            }
+
             Rhombus rhombus = new Rhombus(firstDiagonal, secondDiagonal, side);
             shapes.Add(rhombus);
+            Console.WriteLine("Rhombus created!");
             break;
 
         case "square":
-            double squareSide = double.Parse(Console.ReadLine());
+            double squareSide = 0;
+
+            while (true)
+            {
+                Console.WriteLine("Please enter the side of the square:");
+                string input = Console.ReadLine();
+
+                if (double.TryParse(input, out squareSide))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input you entered is not valid!");
+                }
+            }
+
             Square square = new Square(squareSide);
             shapes.Add(square);
+            Console.WriteLine("Square created!");
             break;
 
         case "triangle":
-            double @base = double.Parse(Console.ReadLine());
-            double height = double.Parse(Console.ReadLine());
-            double leftSide = double.Parse(Console.ReadLine());
-            double rightSide = double.Parse(Console.ReadLine());
+            double @base = 0;
+            double height = 0;
+            double leftSide = 0;
+            double rightSide = 0;
+
+            while (true)
+            {
+                Console.WriteLine("Please enter the triangle base:");
+                string baseTemp = Console.ReadLine();
+                bool isValidBase = false;
+                bool isValidHeight = false;
+                bool isValidLeftSide = false;
+                bool isValidRightSide = false;
+
+                if (double.TryParse(baseTemp, out @base))
+                {
+                    isValidBase = true;
+                }
+
+                Console.WriteLine("Please enter the triangle height:");
+                string heightTemp = Console.ReadLine();
+
+                if (double.TryParse(heightTemp, out height))
+                {
+                    isValidHeight = true;
+                }
+
+                Console.WriteLine("Please enter triangle left side:");
+                string leftSideTemp = Console.ReadLine();
+
+                if (double.TryParse(leftSideTemp, out leftSide))
+                {
+                    isValidLeftSide = true;
+                }
+
+                Console.WriteLine("Please enter triangle right side:");
+                string rightSideTemp = Console.ReadLine();
+
+                if (double.TryParse(rightSideTemp, out rightSide))
+                {
+                    isValidRightSide = true;
+                }
+
+                if (isValidBase && isValidHeight && isValidLeftSide && isValidRightSide)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input you entered is not valid!");
+                }
+            }
+
             Triangle triangle = new Triangle(@base, height, leftSide, rightSide);
             shapes.Add(triangle);
+            Console.WriteLine("Triangle created!");
             break;
 
         default:
