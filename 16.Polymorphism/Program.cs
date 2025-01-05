@@ -8,12 +8,49 @@ while (true)
 {
     Console.WriteLine("Enter the type of figure you want to create. (circle, rectangle, rhombus, square or triangle)");
     Console.WriteLine("If you dont want to create any more figures, write 'calculate'");
+    Console.WriteLine("If you want to remove a figure, write 'remove'");
 
     command = Console.ReadLine().ToLower();
 
     if (command == "calculate")
     {
         break;
+    }
+
+    if (command == "remove")
+    {
+        if (shapes.Count == 0)
+        {
+            Console.WriteLine("There are no figures to remove!");
+            continue;
+        }
+
+        Console.WriteLine("Please enter the index of the figure you want to remove:");
+
+        for (int i = 0; i < shapes.Count; i++)
+        {
+            Console.WriteLine($"Index {i} - figure: {shapes[i].GetType().Name} with an area of {shapes[i].GetArea():F2}");
+        }
+
+        int index = -1;
+
+        while (true)
+        {
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out index) && index >= 0 && index < shapes.Count)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("You entered an invalid index. Try again.");
+            }
+        }
+
+        string nameOfRemovedFigure = shapes[index].GetType().Name;
+        shapes.RemoveAt(index);
+        Console.WriteLine($"Removed the {nameOfRemovedFigure} at index {index}");
     }
 
     switch (command.ToLower())
